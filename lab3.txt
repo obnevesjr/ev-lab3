@@ -1,0 +1,37 @@
+O facto de o cracker, aparentemente, conseguir adivinhar passwords deve-se a diversos possíveis factores entre os quais se encontram
+
+- passwords fracas compostas por palavras comuns que podem ser bastante vulneráveis a ataques com base em dicionários onde um conjunto de palavras frequentes é testado em série até
+  que uma seja equivalente à password
+
+- passwords guardadas usando chaves de encriptação particularmente fracos e com elevado probabilidade de colisões que podem revelar inadvertidamente o algoritmo usado, facilitando
+  a sua descoberta
+
+Level 1
+-------
+
+SHA-1, como qualquer outro algoritmo de hash, tem como objectivo dar garantias de autenticidade à informação passada numa rede. Assim, um utilizador pode identificar qualquer mensagem que
+recebe como sendo fidedigna. Quanto à natureza da mensagem, esta depende das necessidades variando de assinaturas de documentos a e-mails ou actualização de software, por exemplo.
+Porém, em virtude do facto de ter sido decifrado usando ataques que aproveitam a sua maior propensão para colisões, não se apresenta como uma boa opção. A facilidade bem como rapidez com 
+que o site sugerido consegue "adivinhar" passwords é um claro sinal do quão inseguro é o algoritmo, indiciando ser ultrapassado e totalmente inadequado para qualquer utilização que tenha 
+requisitos de segurança.
+
+
+Level 2
+-------
+
+SHA-256, à semelhança do SHA-1 serve para garantir que uma mensagem é fidedigna. Porém, em virtude de ter uma representação interna de 256 bits, contrastando com os 160 do SHA-1, é
+mais seguro e menos susceptível a colisões o que faz com que se apresente como uma alternativa melhor quando os requisitos de segurança forem maiores. Naturalmente, sendo um algoritmo
+inerentemente mais complexo exige maiores recursos e tempo de computação o que é algo a ter em conta em certas aplicações que tenham limitações a esse nível. Contudo, o nível de
+segurança que proporciona acaba por justificar os custos subjacentes, especialmente quando a informação com ela codificada é mais sensível.
+
+
+Level 3
+-------
+
+O RSA faz uso de criptografia assimétrica sendo constituída por duas chaves, uma pública e outra privada, que são impossíveis de relacionar tendo conhecimento de apenas uma delas.
+Se um actor tem uma delas, não consegue deduzir a outra. Assim, apresenta-se como uma excelente opção para a aferição do quão fidedigna é uma mensagem uma vez que, estando de posse da
+chave pública, qualquer actor pode desencriptar uma mensagem encriptada com a chave privada e, inversamente, o (único) detentor da chave privada consegue desencriptar qualquer mensagem
+encriptada com a chave pública. Isto garante algo muito interessante do ponto de vista da verificação de mensagens que é validar que uma mensagem tem garantidamente origem no emissor que
+é presumido no caso dessas serem encriptadas com a chave privada do par, bem como garantir que qualquer mensagem encriptada com a chave pública só pode ser correctamente desencriptada
+pelo destinatário desejado. Este nível de segurança é, se calhar, o mais desejado. Porém, tem implicações de tempo de computação e tempo de criação e partilha das chaves que podem
+inviabilizar o seu uso para aplicações mais frugais.
